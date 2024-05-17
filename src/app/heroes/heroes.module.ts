@@ -11,15 +11,24 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { CardComponent } from './components/card/card.component';
 
+import { HeroImgPipe } from './pipes/hero-img.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
-    LayoutComponent,
+    CardComponent,
     HeroPageComponent,
+    LayoutComponent,
     ListPageComponent,
     NewPageComponent,
     SearchPageComponent,
-    CardComponent,
+    HeroImgPipe,
   ],
-  imports: [CommonModule, HeroesRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    HeroesRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+  ],
 })
 export class HeroesModule {}

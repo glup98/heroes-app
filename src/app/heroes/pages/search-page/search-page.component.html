@@ -1,1 +1,34 @@
-<p>search-page works!</p>,
+<div class="flex flex-column p-2">
+  <h3>Buscador</h3>
+  <mat-form-field>
+    <mat-label>Buscador de héroes</mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="searchInput"
+      (input)="getSuggestedHeroes()"
+      [matAutocomplete]="autoHeroes"
+    />
+    <mat-autocomplete
+      autoActiveFirstOption
+      #autoHeroes="matAutocomplete"
+      (optionSelected)="handleSelectOption($event)"
+    >
+      <mat-option
+        *ngFor="let suggestedHeroe of suggestedHeroes"
+        [value]="suggestedHeroe"
+        >{{ suggestedHeroe.superhero }}</mat-option
+      >
+      <mat-option
+        *ngIf="
+          suggestedHeroes.length === 0 &&
+          searchInput.value &&
+          searchInput.value.length > 0
+        "
+        value=""
+        >No se encontró nada con el termino {{ searchInput.value }}</mat-option
+      >
+    </mat-autocomplete>
+  </mat-form-field>
+  {{ selectedHero | json }}
+</div>
