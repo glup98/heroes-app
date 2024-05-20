@@ -13,6 +13,7 @@ import { CardComponent } from './components/card/card.component';
 
 import { HeroImgPipe } from './pipes/hero-img.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDialogComponent } from './components/dialogs/comfirn-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewPageComponent,
     SearchPageComponent,
     HeroImgPipe,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
