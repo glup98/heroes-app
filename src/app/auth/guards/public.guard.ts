@@ -8,7 +8,7 @@ import {
   RouterStateSnapshot,
   UrlSegment,
 } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 import { AuthService } from '../services/auth.service';
 
@@ -35,6 +35,7 @@ const checkAuth = (): boolean | Observable<boolean> => {
       if (isAuth) {
         router.navigate(['/']);
       }
-    })
+    }),
+    map((isAuth) => !isAuth)
   );
 };
